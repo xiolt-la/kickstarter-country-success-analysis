@@ -11,14 +11,11 @@ The goal is to understand how **campaign success rates differ across countries**
 
 The analysis is implemented in **Python** using Jupyter Notebooks and focuses on clear, interpretable visualizations and practical insights.
 
-> This project was inspired by a guided project from Dataquest, then rebuilt and extended as a personal project.
-
 ---
 
 ## Dataset
 
-- **Source**: Kickstarter campaign dataset provided in a Dataquest course  
-  - (Optionally, you can mention the original public source if available, e.g. a Kaggle dataset.)  
+- **Source**: Kaggle dataset
 - **Rows**: ~`TODO: fill in` campaigns  
 - **Time range**: `TODO: fill in`  
 - **Key columns used in this project**:
