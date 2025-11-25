@@ -53,7 +53,7 @@ These questions are relevant both for **campaign creators** (who want to increas
 ```text
 kickstarter-country-success-analysis/
 ├── data/
-│   └── README.md              # Notes on data source and fields (no raw data committed, optional)
+|   └── kickstarter_projects.csv
 ├── notebooks/
 │   ├── 01_eda_country_overview.ipynb
 │   └── 02_country_category_and_features.ipynb
