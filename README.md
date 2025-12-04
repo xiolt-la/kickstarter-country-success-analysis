@@ -59,3 +59,34 @@ kickstarter-country-success-analysis/
 │   └── 02_country_success_analysis.ipynb # Logistic regression & country-level modeling
 ├── .gitignore
 └── README.md                             # This file
+
+---
+
+## Notebooks
+
+- `notebooks/01_eda_country_overview.ipynb`  
+  - Exploratory data analysis of the raw Kickstarter dataset  
+  - Focus on state distribution, country distribution, and basic country-level success rates  
+
+- `notebooks/02_country_success_analysis.ipynb`  
+  - Logistic regression models to predict campaign success  
+  - Compares a country-only model with a richer model including category, goal, backers, and duration  
+
+---
+
+## Conclusions
+
+Using two logistic regression specifications, we see very different pictures of what drives Kickstarter success:
+
+- A baseline model that includes **only country dummies** has a very low pseudo R² (~0.005), indicating that country alone explains almost none of the variation in success. Some countries (e.g., United States, United Kingdom, Hong Kong, Denmark, France) show higher success odds than the omitted baseline country, while others (e.g., Italy, Austria, Netherlands, Spain, Germany) show lower odds, but overall the model fits the data poorly.
+
+- After adding **project category, log-transformed funding goal, number of backers, and campaign duration**, the pseudo R² jumps to ~0.75. In this richer model, the **strongest effects come from**:
+  - `log_backers` (large positive coefficient): campaigns with more backers are much more likely to succeed.
+  - `log_goal` (large negative coefficient): campaigns with higher funding goals are less likely to succeed.
+  - Certain categories (e.g., Theater, Dance, Film & Video, Music) are associated with higher success probabilities, while others (e.g., Games, Technology, Comics) are associated with lower success probabilities.
+  - Campaign duration has a small negative effect, suggesting that longer campaigns are slightly less likely to succeed.
+
+- Once we control for these project-level factors, **most country coefficients shrink and many lose statistical significance**; a few countries (e.g., Hong Kong, Switzerland, Denmark, France) remain positively associated with success, but the differences are much smaller than in the country-only model. This suggests that **project characteristics and campaign design matter far more than country alone**.
+
+- The second model also triggers a quasi-separation warning, meaning that a subset of campaigns is almost perfectly predicted by the included features. This reinforces that the model is very good at distinguishing “obviously successful” vs “obviously unsuccessful” projects, but some of the extreme coefficients should be interpreted with caution rather than as exact causal effects.
+
