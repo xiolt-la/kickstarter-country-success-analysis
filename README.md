@@ -59,6 +59,7 @@ kickstarter-country-success-analysis/
 │   └── 02_country_success_analysis.ipynb # Logistic regression & country-level modeling
 ├── .gitignore
 └── README.md                             # This file
+```
 
 ---
 
